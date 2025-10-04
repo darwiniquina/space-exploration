@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+
+
 .section {
   display: flex;
   flex-direction: column;
@@ -9,46 +11,30 @@
 }
 
 @font-face {
-  font-family: "Orbitron-Regular";
-  src: url("/fonts/Orbitron-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Orbitron-Medium";
-  src: url("/fonts/Orbitron-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "Orbitron-Bold";
   src: url("/fonts/Orbitron-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 
+
 @font-face {
-  font-family: "Orbitron-Black";
-  src: url("/fonts/Orbitron-Black.ttf") format("truetype");
-  font-weight: 900;
+  font-family: "Exo 2";
+  src: url("/fonts/Exo2-Regular.ttf") format("truetype");
+  font-weight: 400;
   font-style: normal;
 }
 
-/* Reusable classes */
-.font-orbitron-regular {
-  font-family: "Orbitron-Regular", sans-serif;
-}
 
-.font-orbitron-medium {
-  font-family: "Orbitron-Medium", sans-serif;
-}
 
 .font-orbitron-bold {
   font-family: "Orbitron-Bold", sans-serif;
 }
 
-.font-orbitron-black {
-  font-family: "Orbitron-Black", sans-serif;
+.font-exo2 {
+  font-family: "Exo 2", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }

@@ -1,12 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import Galaxy from '../components/Galaxy'
+import SputnikScene from '../components/SputnikScene'
 
 function App() {
   return (
     <>
       <Galaxy />
+      <SputnikScene />
     </>
   )
 }

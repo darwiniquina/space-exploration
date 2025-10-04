@@ -17,24 +17,16 @@ export default function Galaxy() {
             splitTitle = new SplitText(".galaxy-text", { type: "chars, words" });
 
             const tl = gsap.timeline();
+
             tl.from(splitTitle.chars, {
                 opacity: 0,
-                y: -50,
-                rotateX: -90,
                 filter: "blur(6px)",
                 transformOrigin: "center center",
                 stagger: 0.06,
                 duration: 1.2,
                 ease: "power3.out",
-            }).to(
-                splitTitle.chars,
-                {
-                    filter: "blur(0px)",
-                    duration: 0.8,
-                    ease: "sine.out",
-                },
-                "-=1"
-            );
+            })
+
 
             tl.fromTo(
                 stars,
@@ -43,14 +35,29 @@ export default function Galaxy() {
                     scale: 1,
                     opacity: 1,
                     stagger: { each: 0.05, from: "center", grid: "auto" },
-                    duration: 0.6,
+                    duration: 0.05,
                     ease: "back.out(2)",
                 }
             ).to(stars, {
                 opacity: gsap.utils.wrap([0.3, 1]),
                 duration: 1.5,
-                stagger: { each: 0.1, repeat: -1, yoyo: true },
+                stagger: { each: 0.1, },
                 ease: "sine.inOut",
+            });
+
+            gsap.to(".galaxy-text", {
+                y: "-100%",
+                opacity: 0,
+                scale: 0,
+                transformOrigin: "bottom center",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top top",
+                    end: "50% top",
+                    scrub: true,
+                    pin: true,
+                },
             });
         }, containerRef);
 
@@ -74,7 +81,7 @@ export default function Galaxy() {
                 return (
                     <div
                         key={i}
-                        className="star absolute rounded-full bg-white"
+                        className="star absolute rounded-full bg-white blur-[2px]"
                         style={{
                             top: `${top}%`,
                             left: `${left}%`,
@@ -85,12 +92,21 @@ export default function Galaxy() {
                 );
             })}
 
-            <div className="absolute inset-0 flex items-center justify-center">
+
+            <div
+                className="absolute w-full flex justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+
+            >
                 <h1 className="galaxy-text font-orbitron-bold 
-                text-white
-                        text-5xl sm:text-4xl md:text-5xl lg:text-6xl 
-                        font-bold tracking-wide text-center 
-                        px-4 drop-shadow-[0_0_15px_rgba(150,100,255,0.5)]">
+                    text-white
+                    text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
+                    font-bold tracking-wide text-center 
+                    px-4 drop-shadow-[0_0_15px_rgba(150,100,255,0.5)]"
+                    style={{
+                        transform: "rotateX(0deg) scaleX(1) scaleY(1) skewX(0deg)",
+                        transformOrigin: "bottom center",
+                    }}
+                >
                     A Journey Through Space Exploration
                 </h1>
             </div>
